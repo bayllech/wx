@@ -1,0 +1,12 @@
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.github.binarywang.demo.wechat: DEBUG
+
+wechat:
+  cp:
+    corpId: wxbd4ffb1ca4a804de
+    secret: ZFH8vO4J2Gd1dSv5ckg_D7PkhtFuVB4ewPFU78uYLQ4
+    token: 3irTNS7NbrfG9l1RkmykGzB
+    aesKey: LT2wuKvasd7s3rzqRx3yIRtrs5byXNOHIW2wAVM1beW
+    agentId: 1

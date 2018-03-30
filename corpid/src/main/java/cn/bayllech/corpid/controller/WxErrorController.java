@@ -3,8 +3,8 @@ package cn.bayllech.corpid.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorAttributes;
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.boot.autoconfigure.web.ErrorAttributes;
+import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +24,7 @@ import java.util.Map;
 public class WxErrorController implements ErrorController {
 
   private static final Logger logger = LoggerFactory
-          .getLogger(WxErrorController.class);
+      .getLogger(WxErrorController.class);
   private final static String ERROR_PATH = "/error";
   private static WxErrorController appErrorController;
   /**
@@ -58,7 +57,7 @@ public class WxErrorController implements ErrorController {
   @RequestMapping(value = ERROR_PATH, produces = "text/html")
   public ModelAndView errorHtml(HttpServletRequest request) {
     return new ModelAndView("error",
-            this.getErrorAttributes(request, false));
+        this.getErrorAttributes(request, false));
   }
 
   /**
@@ -69,9 +68,9 @@ public class WxErrorController implements ErrorController {
   @RequestMapping(value = ERROR_PATH)
   @ResponseBody
   public ResponseEntity<Map<String, Object>> error(
-          HttpServletRequest request) {
+      HttpServletRequest request) {
     Map<String, Object> body = this.getErrorAttributes(request,
-            this.getTraceParameter(request));
+        this.getTraceParameter(request));
     HttpStatus status = this.getStatus(request);
     return new ResponseEntity<>(body, status);
   }
@@ -94,21 +93,21 @@ public class WxErrorController implements ErrorController {
   private Map<String, Object> getErrorAttributes(HttpServletRequest request,
                                                  boolean includeStackTrace) {
     RequestAttributes requestAttributes = new ServletRequestAttributes(
-            request);
+        request);
     Map<String, Object> map = this.errorAttributes
-            .getErrorAttributes((WebRequest) requestAttributes, includeStackTrace);
+        .getErrorAttributes(requestAttributes, includeStackTrace);
     logger.error("map is [{}]", map);
     String url = request.getRequestURL().toString();
     map.put("URL", url);
     logger.error("[error info]: status-{}, request url-{}",
-            map.get("status"), url);
+        map.get("status"), url);
     return map;
   }
 
   @SuppressWarnings("static-method")
   private HttpStatus getStatus(HttpServletRequest request) {
     Integer statusCode = (Integer) request
-            .getAttribute("javax.servlet.error.status_code");
+        .getAttribute("javax.servlet.error.status_code");
     if (statusCode != null) {
       return HttpStatus.valueOf(statusCode);
     }
