@@ -58,7 +58,7 @@ public class CorpidApplicationTests {
         } else {
             logger.error("获取微信AccessToken异常:{}", map.get("errcode"));
         }*/
-        String data = "{\n" +
+        /*String data = "{\n" +
                 "   \"touser\" : \"bayllech\",\n" +
                 "   \"msgtype\" : \"text\",\n" +
                 "   \"agentid\" : 1,\n" +
@@ -69,7 +69,8 @@ public class CorpidApplicationTests {
                 "}";
 
         String result = service.post("https://qyapi.weixin.qq.com/cgi-bin/message/send", data);
-        System.out.println(result);
+        System.out.println(result);*/
+
 
     }
 
