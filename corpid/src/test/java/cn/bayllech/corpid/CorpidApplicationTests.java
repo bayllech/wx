@@ -1,10 +1,12 @@
 package cn.bayllech.corpid;
 
 import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.cp.api.WxCpService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -15,8 +17,9 @@ import java.io.IOException;
 public class CorpidApplicationTests {
 
     Logger logger = LoggerFactory.getLogger(CorpidApplicationTests.class);
-    /*@Value("${wechat.cp.corpId}")
-    private String corpId;*/
+
+    @Autowired
+    WxCpService service;
 
     @Test
     public void contextLoads() throws IOException, WxErrorException {
@@ -55,7 +58,18 @@ public class CorpidApplicationTests {
         } else {
             logger.error("获取微信AccessToken异常:{}", map.get("errcode"));
         }*/
+        String data = "{\n" +
+                "   \"touser\" : \"bayllech\",\n" +
+                "   \"msgtype\" : \"text\",\n" +
+                "   \"agentid\" : 1,\n" +
+                "   \"text\" : {\n" +
+                "       \"content\" : \"你的快递已到，请携带工卡前往邮件中心领取。\\n出发前可查看<a href=\\\"http://work.weixin.qq.com\\\">邮件中心视频实况</a>，聪明避开排队。\"\n" +
+                "   },\n" +
+                "   \"safe\":0\n" +
+                "}";
 
+        String result = service.post("https://qyapi.weixin.qq.com/cgi-bin/message/send", data);
+        System.out.println(result);
 
     }
 

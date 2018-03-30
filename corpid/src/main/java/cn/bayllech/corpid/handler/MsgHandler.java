@@ -22,7 +22,7 @@ public class MsgHandler extends AbstractHandler {
                                   Map<String, Object> context, WxCpService weixinService,
                                   WxSessionManager sessionManager) {
 
-    if (!wxMessage.getMsgType().equals(WxConsts.XmlMsgType.EVENT)) {
+    if (wxMessage.getMsgType().equals(WxConsts.XmlMsgType.TEXT)) {
       //TODO 可以选择将消息保存到本地
     }
 
