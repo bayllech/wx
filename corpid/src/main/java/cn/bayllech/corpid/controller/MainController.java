@@ -30,7 +30,7 @@ public class MainController {
     public void index(HttpServletRequest request, HttpServletResponse response) throws WxErrorException, IOException {
         System.out.println(service.getAccessToken());
 
-        /*String userId = "bayllech";
+/*        String userId = "bayllech";
         WxCpMessage message = WxCpMessage.TEXT().agentId(service.getWxCpConfigStorage().getAgentId()).toUser(userId).content("Hello World").build();
         service.messageSend(message);*/
 
