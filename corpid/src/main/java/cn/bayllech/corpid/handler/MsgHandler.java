@@ -1,7 +1,6 @@
 package cn.bayllech.corpid.handler;
 
 import cn.bayllech.corpid.builder.TextBuilder;
-import cn.bayllech.corpid.utils.JsonUtils;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.cp.api.WxCpService;
@@ -27,7 +26,20 @@ public class MsgHandler extends AbstractHandler {
     }
 
     //TODO 组装回复消息
-    String content = "收到信息内容：" + JsonUtils.toJson(wxMessage);
+//    System.out.println("content: " + wxMessage.getContent());
+//    String content = "收到信息内容：" + JsonUtils.toJson(wxMessage);
+    String content;
+    switch (wxMessage.getContent()) {
+      case "Hello":
+        content = "world!";
+        break;
+      case "你好":
+        content = "我很好，她还还吗";
+        break;
+      default:
+        content = "已收到消息内容：" + wxMessage.getContent();
+    }
+
 
     return new TextBuilder().build(content, wxMessage, weixinService);
 

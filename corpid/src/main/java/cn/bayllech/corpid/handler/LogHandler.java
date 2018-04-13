@@ -18,7 +18,7 @@ public class LogHandler extends AbstractHandler {
   public WxCpXmlOutMessage handle(WxCpXmlMessage wxMessage,
                                   Map<String, Object> context, WxCpService WxCpService,
                                   WxSessionManager sessionManager) {
-    this.logger.info("\n接收到请求消息，内容：{}", JsonUtils.toJson(wxMessage));
+    this.logger.info("\nLogHandler:接收到请求消息，内容：{}", JsonUtils.toJson(wxMessage));
     return null;
   }
 
