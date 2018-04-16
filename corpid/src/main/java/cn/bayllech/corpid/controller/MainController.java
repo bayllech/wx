@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,5 +37,18 @@ public class MainController {
 
         /*logger.debug("Access_token: {}",service.getAccessToken());
         return service.getAccessToken();*/
+    }
+
+    @RequestMapping("/m/index")
+    public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("index");
+        return modelAndView;
+    }
+
+    @RequestMapping("/index")
+    public String login(String username,String password) {
+        
+
+        return null;
     }
 }
