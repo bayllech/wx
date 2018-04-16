@@ -3,6 +3,7 @@ package cn.bayllech.corpid;
 import me.chanjar.weixin.common.exception.WxErrorException;
 import me.chanjar.weixin.cp.api.WxCpDepartmentService;
 import me.chanjar.weixin.cp.api.WxCpService;
+import me.chanjar.weixin.cp.api.WxCpTagService;
 import me.chanjar.weixin.cp.api.WxCpUserService;
 import me.chanjar.weixin.cp.bean.WxCpDepart;
 import me.chanjar.weixin.cp.bean.WxCpUser;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -86,6 +88,15 @@ public class WxUserTest {
         for (WxCpDepart wxCpDepart : departList) {
             System.out.println(wxCpDepart);
         }
+    }
+
+    @Test
+    public void tagTest() throws WxErrorException {
+        WxCpTagService tagService = wxCpService.getTagService();
+//        WxCpTag wxCpTag = new WxCpTag();
+//        String tagId = tagService.create("标签测试2");
+//        System.out.println(tagId);
+        tagService.addUsers2Tag("1", Arrays.asList("bayllech"),null);
     }
 
 }
