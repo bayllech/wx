@@ -1,14 +1,18 @@
 package cn.bayllech.corpid;
 
 import me.chanjar.weixin.common.exception.WxErrorException;
+import me.chanjar.weixin.cp.api.WxCpDepartmentService;
 import me.chanjar.weixin.cp.api.WxCpService;
 import me.chanjar.weixin.cp.api.WxCpUserService;
+import me.chanjar.weixin.cp.bean.WxCpDepart;
 import me.chanjar.weixin.cp.bean.WxCpUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * @author bei.qi
@@ -73,6 +77,15 @@ public class WxUserTest {
             // 将需要同步回复的消息加密，然后再返回给微信平台
             response.getWriter().write(outMessage.toEncryptedXml(wxCpConfigStorage));
         }*/
+    }
+
+    @Test
+    public void departTest() throws WxErrorException {
+        WxCpDepartmentService wxCpDepartmentService = wxCpService.getDepartmentService();
+        List<WxCpDepart> departList = wxCpDepartmentService.list(null);
+        for (WxCpDepart wxCpDepart : departList) {
+            System.out.println(wxCpDepart);
+        }
     }
 
 }
