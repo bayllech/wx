@@ -34,6 +34,11 @@ public class WxCpProperties {
    */
   private String aesKey;
 
+  /**
+   * 回调地址
+   */
+  private String redirectUri;
+
   public String getCorpId() {
     return this.corpId;
   }
@@ -72,6 +77,14 @@ public class WxCpProperties {
 
   public void setAesKey(String aesKey) {
     this.aesKey = aesKey;
+  }
+
+  public String getRedirectUri() {
+    return redirectUri;
+  }
+
+  public void setRedirectUri(String redirectUri) {
+    this.redirectUri = redirectUri;
   }
 
   @Override

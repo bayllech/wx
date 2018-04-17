@@ -47,6 +47,7 @@ public class WxCpConfiguration {
     configStorage.setCorpSecret(this.properties.getSecret());
     configStorage.setToken(this.properties.getToken());
     configStorage.setAesKey(this.properties.getAesKey());
+    configStorage.setOauth2redirectUri(this.properties.getRedirectUri());
     return configStorage;
   }
 
