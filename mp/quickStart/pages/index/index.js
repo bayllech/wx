@@ -25,6 +25,11 @@ Page({
       }  
     })
   },
+  // dashuaibi: function(e) {
+  //   this.setData({
+  //     name: 
+  //   })
+  // },
   changeName: function (e) {
     // sent data change to view.
     this.setData({
