@@ -22,7 +22,7 @@
       },
       {
         "pagePath": "pages/logs/logs",
-        "text": "日志",
+        "text": "预约",
         "iconPath": "images/2.1.1.png",
         "selectedIconPath": "images/2.1.2.png"
       }

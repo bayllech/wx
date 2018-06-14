@@ -9,8 +9,8 @@
    <!-- <view> You click {{name}}! </view>
   <button bindtap="changeName"> Click me! </button> -->
 
-    <view hidden="{{flag}}"> 此人是个大帅比！！！ </view>
-  <button bindtap="dashuaibi"> Click me! </button> 
+  <view hidden="{{flag}}"> 此人是个大帅比！</view>
+  <button bindtap="dashuaibi">Click</button> 
 
   </view>
   <!-- <view>{{array[0].msg}}</view> -->
@@ -29,7 +29,7 @@
 <!-- Thie is our View -->
  
 
-  <view class="usermotto">
+  <!-- <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
+  </view> -->
 </view>

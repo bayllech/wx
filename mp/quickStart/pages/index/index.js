@@ -8,6 +8,7 @@ Page({
     name: 1,
     array: [{ msg: '这是一个大帅比' }, { msg: '2' }],
     userInfo: {},
+    flag: false,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     staffA: { firstName: 'Hulk', lastName: 'Hu' },
@@ -25,11 +26,11 @@ Page({
       }  
     })
   },
-  // dashuaibi: function(e) {
-  //   this.setData({
-  //     name: 
-  //   })
-  // },
+  dashuaibi: function(e) {
+    this.setData({
+      flag: this.data.flag == false ? true : false
+    })
+  },
   changeName: function (e) {
     // sent data change to view.
     this.setData({
