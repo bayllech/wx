@@ -26,6 +26,15 @@ Page({
       }  
     })
   },
+  handleTap1: function() {
+    console.log("handleTap1")
+  },
+  handleTap2: function () {
+    console.log("handleTap2")
+  },
+  handleTap3: function () {
+    console.log("handleTap3")
+  },
   dashuaibi: function(e) {
     this.setData({
       flag: this.data.flag == false ? true : false

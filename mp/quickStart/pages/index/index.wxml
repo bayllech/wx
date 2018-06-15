@@ -12,6 +12,17 @@
   <view hidden="{{flag}}"> 此人是个大帅比！</view>
   <button bindtap="dashuaibi">Click</button> 
 
+<!--事件冒泡  -->
+  <view id="outter" bindtap="handleTap1">
+    outer view
+    <view id="middle" catchtap="handleTap2">
+      middle view
+      <view id="inner" bindtap="handleTap3">
+        inner view
+      </view>
+    </view>
+  </view>
+
   </view>
   <!-- <view>{{array[0].msg}}</view> -->
 
