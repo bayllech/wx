@@ -12,6 +12,13 @@
   <view hidden="{{flag}}"> 此人是个大帅比！</view>
   <button bindtap="dashuaibi">Click</button> 
 
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+<!-- <open-data type="userAvatarUrl"></open-data>
+<open-data type="userNickName"></open-data> -->
+
+<button open-type="openSetting" bindopensetting="callback">打开设置页</button>
+
+
 <!--事件冒泡  -->
   <view id="outter" bindtap="handleTap1">
     outer view

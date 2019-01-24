@@ -28,15 +28,6 @@ App({
             }
         })
 
-        wx.openSetting({
-            success(res) {
-                console.log(res.authSetting)
-                // res.authSetting = {
-                //   "scope.userInfo": true,
-                //   "scope.userLocation": true
-                // }
-            }
-        })
         // 获取用户信息
         wx.getSetting({
             success: res => {
@@ -45,6 +36,8 @@ App({
                     wx.getUserInfo({
                         success: res => {
                             // 可以将 res 发送给后台解码出 unionId
+                            console.log("app getuserinfo success : ")
+                            console.log(res)
                             this.globalData.userInfo = res.userInfo
 
                             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -53,8 +46,28 @@ App({
                                 this.userInfoReadyCallback(res)
                             }
                         }
+                        
+                    })
+                } else {
+                    console.log("app no authorize getuserinfo")
+                }
+                if (!res.authSetting['scope.record']) {
+                    wx.authorize({
+                        scope: 'scope.record',
+                        success() {
+                            // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+                            wx.startRecord()
+                        },
+                        fail() {
+                            wx.openSetting({
+                                success(res) {
+                                    console.log(res.authSetting)
+                                }
+                            })
+                        }
                     })
                 }
+
             }
         })
     },

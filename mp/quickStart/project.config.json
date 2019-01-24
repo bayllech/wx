@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.98",
+	"libVersion": "2.5.1",
 	"appid": "wx560cc3fce078819c",
 	"projectname": "demo",
 	"isGameTourist": false,
